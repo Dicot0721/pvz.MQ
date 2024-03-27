@@ -7,7 +7,7 @@ Import "Thread.lua"
 SetScreenScale 1080, 2400
 
 
-pvz.UpdateAddr("129A190", "entry")
+pvz.UpdateAddr("ABCD1234", "entry")
 
 
 Dim ICE_SHROOM = 1   ' 冰川菇
@@ -34,7 +34,7 @@ Sub UseIce()
     Dim index = Thread.GetShareVar("index")
     Dim ICE = 1
     Dim M_ICE = 2
-    If (index = 0) Then
+    If index = 0 Then
         pvz.Sleep(320)
         pvz.Card(ICE, 3, 4)
     Else
@@ -50,28 +50,28 @@ pvz.LetsRock()
 pvz.Sleep(400)
 
 For wave = 1 To 20
-    If (wave = 20) Then
+    If wave = 20 Then
         pvz.Prejudge(-450, wave)
     Else
         pvz.Prejudge(-150, wave)
     End If
 
     ' PPDD
-    If (wave = 1 Or wave = 3 Or wave = 5 Or wave = 6 Or wave = 8 Or _
-        wave = 10 Or wave = 12 Or wave = 14 Or wave = 15 Or wave = 17 Or wave = 19) Then
+    If wave = 1 Or wave = 3 Or wave = 5 Or wave = 6 Or wave = 8 Or _
+       wave = 10 Or wave = 12 Or wave = 14 Or wave = 15 Or wave = 17 Or wave = 19 Then
         pvz.WaitUntil(-95)
         pvz.PP(2, 9, 5, 9)
         pvz.Sleep(106)
         pvz.PP(2, 9, 5, 9)
 
         ' 下一波预判冰
-        If (wave = 1 Or wave = 3 Or wave = 8 Or _
-            wave = 10 Or wave = 12 Or wave = 17) Then
+        If wave = 1 Or wave = 3 Or wave = 8 Or _
+           wave = 10 Or wave = 12 Or wave = 17 Then
             pvz.WaitUntil(601 + 225 - 100 - 320)
             Thread.Start(UseIce)
 
         ' 第 19 波收尾
-        ElseIf (wave = 19) Then
+        ElseIf wave = 19 Then
             pvz.WaitUntil(601 - 95)
             pvz.PP(2, 9, 5, 9)
             pvz.Sleep(106)
@@ -81,10 +81,10 @@ For wave = 1 To 20
         End If
 
     ' IPP-PP
-    ElseIf (wave = 2 Or wave = 4 Or wave = 9 Or _
-            wave = 11 Or wave = 13 Or wave = 18) Then
+    ElseIf wave = 2 Or wave = 4 Or wave = 9 Or _
+           wave = 11 Or wave = 13 Or wave = 18 Then
         pvz.WaitUntil(225 - 373)
-        If (wave = 9) Then
+        If wave = 9 Then
             pvz.PP(2, 9, 5, 9)
         Else
             pvz.PP(2, 8.4, 5, 8.4)
@@ -93,7 +93,7 @@ For wave = 1 To 20
         pvz.PP(2, 9, 5, 9)
 
         ' 第 9 波收尾
-        If (wave = 9) Then
+        If wave = 9 Then
             pvz.WaitUntil(1400 - 95)
             pvz.PP(2, 9, 5, 9)
             pvz.Sleep(220)
@@ -103,7 +103,7 @@ For wave = 1 To 20
         End If
 
     ' PPN
-    ElseIf (wave = 7 Or wave = 16) Then
+    ElseIf wave = 7 Or wave = 16 Then
         pvz.WaitUntil(-95 + 106)
         pvz.PP(2, 9, 5, 9)
         pvz.WaitUntil(-95 + 373 - 100)
@@ -116,7 +116,7 @@ For wave = 1 To 20
         End If
 
     ' 第 20 波收尾
-    ElseIf (wave = 20) Then
+    ElseIf wave = 20 Then
         pvz.WaitUntil(50 - 100 - 320)
         Thread.Start(UseIce)
         pvz.WaitUntil(225 - 373)

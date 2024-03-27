@@ -1,6 +1,5 @@
 ' 阵名: PE 经典十二炮
 ' 节奏: P6: PP | PP | PP | PP | PP | PP (6, 6, 6, 6, 6, 6)
-' 出处: https://tieba.baidu.com/f?kz=675626485
 
 ' 该脚本仅适用于快速关.
 ' 启动脚本前, 需确保卡槽的最下面一格(第9格)是樱桃炸弹.
@@ -52,26 +51,26 @@ For wave = 1 To 20
     ShowMessage "第" & wave & "波"
 
     ' 关底炮炸珊瑚
-    If (wave = 20) Then
+    If wave = 20 Then
         pvz.WaitUntil(-150) ' 刷新前 150 cs
         pvz.Pao(4, 7.625)
     End If
 
     ' 每波预判炸
     pvz.WaitUntil(-95)
-    If (wave = 10 Or wave = 20) Then
+    If wave = 10 Or wave = 20 Then
         pvz.WaitUntil(-30)
     End If
     pvz.PP(2, 9, 5, 9)
 
     ' 旗帜波加樱桃消延迟
-    If (wave = 10) Then
+    If wave = 10 Then
         pvz.WaitUntil(-30 + 373 - 100)
         pvz.Card(CHERRY_BOMB, 2, 9)
     End If
 
     ' 收尾额外多炸两轮
-    If (wave = 9 Or wave = 19 Or wave = 20) Then
+    If wave = 9 Or wave = 19 Or wave = 20 Then
         For 2
             pvz.Sleep(601)
             pvz.PP(2, 9, 5, 9)

@@ -67,7 +67,7 @@ For wave = 1 To 20
     ' 第 20 波冰消珊瑚
     ' 等到第 20 波才会执行这条命令(If 的意思是如果)
     ' 这里是一到刷新前的第 190 秒就放冰点冰, 冰放在第一路第一列
-    If (wave = 20) Then
+    If wave = 20 Then
         pvz.Card(ICE_SHROOM, 1, 1)
         pvz.Card(COFFEE_BEAN, 1, 1)
     End If ' 结束判断
@@ -80,12 +80,12 @@ For wave = 1 To 20
 
     ' 每两波放一次三叶草.
     ' (wave Mod 2) 得到的是波数除以 2 后得到的余数.
-    If ((wave Mod 2) = 0) Then
+    If (wave Mod 2) = 0 Then
         pvz.Card(BLOVER, 2, 1)
     End If
 
     ' 收尾波额外多炸两轮
-    If (wave = 9 Or wave = 19 Or wave = 20) Then
+    If wave = 9 Or wave = 19 Or wave = 20 Then
         For 2
             pvz.Sleep(750) ' 等待 750 cs
             pvz.PP(2, 8.5, 5, 8.5)

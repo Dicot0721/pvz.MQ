@@ -1,5 +1,5 @@
 ' 作者: 双子叶植物
-' 日期: 2024-3-25
+' 日期: 2024-3-27
 ' 版本: 0.1.6
 
 
@@ -237,7 +237,7 @@ Sub Prejudge(time_relative_cs, wave)
             ShowMessage("第" & wave & "波设定时间" & time_relative_cs & "已经过去, 当前相对时间" & (time_relative_cs - time_to_wait))
         End If
 
-        ' 设定波次已经刷出
+    ' 设定波次已经刷出
     ElseIf _current_wave - wave = 0 Then
 
         ' 获取当前时钟/倒计时数值/倒计时初始数值
@@ -260,7 +260,7 @@ Sub Prejudge(time_relative_cs, wave)
             ShowMessage("第" & wave & "波设定时间" & time_relative_cs & "已经过去, 当前相对时间" & (time_relative_cs - time_to_wait))
         End If
 
-        ' 设定波次的下一波已经刷出
+    ' 设定波次的下一波已经刷出
     Else
         ShowMessage("设定波次" & wave & "的下一波已经刷新, 请调整脚本写法")
     End If
@@ -314,7 +314,7 @@ End Function
 
 '' 点击
 
-' 相当于按键精灵自带的“Tap x, y”命令
+' 相当于按键精灵自带的“Tap(x, y)”命令
 Sub TapScene(x, y)
     TouchDownEvent(x, y, 1)
     TouchUpEvent(1)
@@ -322,8 +322,10 @@ End Sub
 
 ' 点击 "Let's Rock" 按钮
 Sub LetsRock()
-    Touch(72, 905, 20)
-    Call Sleep(2)
+    TouchDownEvent(72, 905, 1)
+    Delay(20)
+    TouchUpEvent(1)
+    Delay(20)
 End Sub
 
 ' 点击卡片
