@@ -111,7 +111,7 @@ End Function
 ' 等待指定时间
 Sub Sleep(time_cs)
     If time_cs > 0 Then
-        Delay time_cs * 10
+        Delay(time_cs * 10)
     ElseIf time_cs < 0 Then
         ShowMessage("等待时间不能小于零")
     End If
